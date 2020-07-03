@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Telephone</th>
+        <th>&nbsp;</th>
+    </tr>
+    <tr *ngFor="let pd of service.list">
+        <td (click)="populateForm(pd)">{{pd.FirstName}}</td>
+        <td (click)="populateForm(pd)">{{pd.LastName}}</td>
+        <td (click)="populateForm(pd)">{{pd.Telephone}}</td>
+        <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.ContactId)"></i>
+        </td>
+    </tr>
+</table>

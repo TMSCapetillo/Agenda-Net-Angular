@@ -1,0 +1,48 @@
+<form #form="ngForm" autocomplete="false"  (submit)="onSubmit(form)">
+    <input type="hidden" name="ContactId" [value]="service.frmContact.ContactId" [(ngModel)]="service.frmContact.ContactId" />
+
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-address-book" [class.green-icon]="FirstName.valid" [class.red-icon]="FirstName.invalid && FirstName.touched"></i>
+            </div>
+          </div>
+    
+          <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="service.frmContact.FirstName" 
+            class="form-control" placeholder="First name" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-address-book" [class.green-icon]="LastName.valid" [class.red-icon]="LastName.invalid && LastName.touched"></i>
+            </div>
+          </div>
+    
+          <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="service.frmContact.LastName" 
+            class="form-control" placeholder="Last name" required />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-phone-square" [class.green-icon]="Telephone.valid" [class.red-icon]="Telephone.invalid && Telephone.touched"></i>
+            </div>
+          </div>
+    
+          <input type="text" name="Telephone" #Telephone="ngModel" [(ngModel)]="service.frmContact.Telephone" 
+            class="form-control" placeholder="Telephone (10 digits)" required minlength="10" maxlength="20" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+
+        <button class="btn btn-secondary btn-lg btn-block" type="button" (click)="onCancel(form)"><i class="fas fa-ban"></i> Cancel</button>
+    </div>
+</form>
